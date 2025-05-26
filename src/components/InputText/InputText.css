@@ -1,9 +1,9 @@
-/* Dropdown.css - Tema Cinema */
-.dropdown {
+/* InputText.css - Tema Cinema */
+.input-text {
   margin: 24px 0;
 }
 
-.dropdown label {
+.input-text label {
   display: block;
   margin-bottom: 12px;
   font-size: 18px;
@@ -12,7 +12,7 @@
   letter-spacing: 0.5px;
 }
 
-.dropdown select {
+.input-text input {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   width: 100%;
@@ -21,25 +21,17 @@
   font-size: 16px;
   padding: 18px 20px;
   box-sizing: border-box;
-  cursor: pointer;
-  color: #2c3e50;
   transition: all 0.3s ease;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236c5ce7'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 20px;
+  color: #2c3e50;
 }
 
-.dropdown select:focus {
+.input-text input:focus {
   outline: none;
   border-color: #6c5ce7;
   box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
   transform: translateY(-1px);
 }
 
-.dropdown select option {
-  background: white;
-  color: #2c3e50;
-  padding: 10px;
+.input-text input::placeholder {
+  opacity: 0.8;
 }
