@@ -17,6 +17,7 @@ const Genre = (props) => {
               title={movie.title}
               director={movie.director}
               poster={movie.poster}
+              genre={props.name}
             />
           ))}
         </div>
