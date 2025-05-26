@@ -1,0 +1,248 @@
+.footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
+  padding: 60px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de filme no fundo */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.02) 20px,
+    rgba(255, 255, 255, 0.02) 22px
+  );
+  pointer-events: none;
+}
+
+/* Pontos de luz no fundo */
+.footer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(108, 92, 231, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 60% 30%, rgba(78, 205, 196, 0.1) 1px, transparent 1px);
+  background-size: 100px 100px, 150px 150px, 80px 80px;
+  animation: sparkle 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.footer section {
+  position: relative;
+  z-index: 1;
+}
+
+.footer section:first-child {
+  flex: 1;
+}
+
+.footer section:nth-child(2) {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footer section:last-child {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer ul li {
+  display: inline-block;
+}
+
+.footer ul li a {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.footer ul li a:hover::before {
+  left: 100%;
+}
+
+.footer ul li a:hover {
+  background: rgba(108, 92, 231, 0.3);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.4);
+}
+
+.footer ul li img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.footer ul li a:hover img {
+  transform: scale(1.2);
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+/* Logo customizado */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  font-size: 32px;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-text {
+  background: linear-gradient(45deg, #74b9ff, #6c5ce7, #ff6b6b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: textShine 3s ease-in-out infinite;
+}
+
+@keyframes textShine {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer section:first-child,
+  .footer section:nth-child(2),
+  .footer section:last-child {
+    flex: none;
+    justify-content: center;
+  }
+
+  .footer ul {
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo-icon {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer ul {
+    gap: 15px;
+  }
+
+  .footer ul li a {
+    padding: 12px;
+  }
+
+  .footer ul li img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .logo-icon {
+    font-size: 24px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Banner from "./components/Banner";
 import Form from "./components/Form";
+import Genre from "./components/Genre";
+import Footer from "./components/Footer";
 
 function App() {
   const genres = [
@@ -51,6 +53,16 @@ function App() {
     <div className="App">
       <Banner />
       <Form genres={genres.map((genre) => genre.name)} addMovie={addMovie} />
+      {genres.map((genre) => (
+        <Genre
+          key={genre.name}
+          name={genre.name}
+          primaryColor={genre.primaryColor}
+          secondaryColor={genre.secondaryColor}
+          movies={movies.filter((movie) => movie.genre === genre.name)}
+        />
+      ))}
+      <Footer />
     </div>
   );
 }
