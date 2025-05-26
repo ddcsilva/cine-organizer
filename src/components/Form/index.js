@@ -13,7 +13,11 @@ const Form = (props) => {
   const [autoFoundPoster, setAutoFoundPoster] = useState("");
   const [isSearchingPoster, setIsSearchingPoster] = useState(false);
 
-  // Função para buscar poster automaticamente
+  /**
+   * Busca o poster do filme automaticamente
+   * @param {*} movieTitle
+   * @returns
+   */
   const searchMoviePoster = async (movieTitle) => {
     if (!movieTitle.trim() || movieTitle.length < 3) {
       setAutoFoundPoster("");
@@ -22,7 +26,7 @@ const Form = (props) => {
 
     setIsSearchingPoster(true);
     try {
-      // Usando uma API key pública para demonstração - você pode usar a sua própria
+      // Busca o poster do filme automaticamente usando a API do OMDb
       const response = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(movieTitle)}&apikey=4a3b711b`);
       const data = await response.json();
 
@@ -39,13 +43,15 @@ const Form = (props) => {
     }
   };
 
-  // Buscar poster automaticamente quando o título muda
+  /**
+   * Busca o poster do filme automaticamente quando o título muda
+   */
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (title && !useCustomPoster) {
         searchMoviePoster(title);
       }
-    }, 1000); // Aguarda 1 segundo após o usuário parar de digitar
+    }, 1000);
 
     return () => clearTimeout(timeoutId);
   }, [title, useCustomPoster]);
