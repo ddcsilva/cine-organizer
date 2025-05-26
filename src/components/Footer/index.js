@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
       </section>
       <section>
-        <p>Desenvolvido com ❤️ para amantes do cinema</p>
+        <p>Desenvolvido pelo Danilo</p>
       </section>
     </footer>
   );
