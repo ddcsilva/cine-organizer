@@ -1,0 +1,90 @@
+.banner {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ff6b6b 100%);
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Formas decorativas */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(255, 255, 255, 0.05) 40px,
+    rgba(255, 255, 255, 0.05) 80px
+  );
+  animation: move 20s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-100px) translateY(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-100px) translateY(-100px) rotate(360deg);
+  }
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-size: 56px;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
+}
+
+.banner-content p {
+  font-size: 22px;
+  margin: 0 0 30px 0;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* Ícones decorativos */
+.cinema-icons {
+  font-size: 30px;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+.cinema-icons span {
+  margin: 0 15px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cinema-icons span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.cinema-icons span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.cinema-icons span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
